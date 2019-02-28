@@ -43,4 +43,21 @@ def table(db):
                     )
     
     
-      
+    db.define_table("preferidas",
+                    Field("musica", 'reference musica'),
+                    Field("user", 'reference user')
+                    )
+    
+    db.define_table("posicao",
+                    Field("segundos",'double'),
+                    Field("musica", "reference musica"),
+                    Field("user", 'reference user')
+                    )
+    
+    db.define_table("tocada",
+                    Field("tocadaem", 'datetime',
+                          default=datetime.datetime.now()
+                          ),
+                    Field("musica", "reference musica"),
+                    Field("user", 'reference user')
+                    )
